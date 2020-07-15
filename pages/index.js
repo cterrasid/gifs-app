@@ -1,21 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import Router from "next/router";
 
 export default function App() {
+  const [keyword, setKeyword] = useState("");
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    Router.push(`/gif/${keyword}`);
+  };
+
+  const handleChange = e => {
+    setKeyword(e.target.value);
+  };
   return (
     <section className="container">
       <header>This is a header!</header>
       <main>
+        <form onSubmit={handleSubmit}>
+          <input type="text" value={keyword} onChange={handleChange} />
+          <button>Buscar</button>
+        </form>
+        <h3>Los gifs más populares</h3>
         <Link href="/gif/[keyword]" as="/gif/dogs">
-          Gifs de Perros
+          <a>Gifs de Perros</a>
         </Link>
         <br />
         <Link href="/gif/[keyword]" as="/gif/panda">
-          Gifs de Pandas
+          <a>Gifs de Pandas</a>
         </Link>
         <br />
         <Link href="/gif/[keyword]" as="/gif/cats">
-          Gifs de Gatos
+          <a>Gifs de Gatos</a>
         </Link>
       </main>
       <footer>This is a footer!</footer>

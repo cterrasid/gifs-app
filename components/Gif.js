@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function Gif({ title, id, url }) {
   return (
     <a className="gif" href={`#${id}`}>
