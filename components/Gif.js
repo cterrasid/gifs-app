@@ -24,7 +24,7 @@ export default function Gif({ title, id, url }) {
             flex-direction: column;
             margin: 16px;
             padding: 32px;
-            width: 100%;
+            width: 30%;
           }
 
           .gif h4 {

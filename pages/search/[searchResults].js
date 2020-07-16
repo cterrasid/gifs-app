@@ -7,7 +7,13 @@ export default function SearcResults({ keyword }) {
 
   return (
     <Fragment>
-      {isLoading ? "Loading..." : <ListOfGifs gifs={gifs} />}
+      {isLoading 
+        ? "Loading..." 
+        : <>
+        <h3>{decodeURI(keyword)}</h3>
+        <ListOfGifs gifs={gifs} />
+        </>
+      }
     </Fragment>
   );
 }

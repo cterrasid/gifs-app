@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import Link from "next/link";
 import Router from "next/router";
 import useGifs from "../hooks/useGifs";
 import ListOfGifs from "../components/ListOfGifs";
+import TrendingSearches from "../components/TrendingSearches";
 
-export default function Index() {
+export default function Home() {
   const [keyword, setKeyword] = useState("");
   const { isLoading, gifs } = useGifs({ keyword });
 
@@ -25,20 +25,13 @@ export default function Index() {
           <input type="text" value={keyword} onChange={handleChange} />
           <button>Buscar</button>
         </form>
-        <h3>Última Búsqueda</h3>
-        <ListOfGifs gifs={gifs} />
-        <h3>Los gifs más populares</h3>
-        <Link href="/gif/[keyword]" as="/gif/dogs">
-          <a>Gifs de Perros</a>
-        </Link>
-        <br />
-        <Link href="/gif/[keyword]" as="/gif/panda">
-          <a>Gifs de Pandas</a>
-        </Link>
-        <br />
-        <Link href="/gif/[keyword]" as="/gif/cats">
-          <a>Gifs de Gatos</a>
-        </Link>
+        <section>
+          <TrendingSearches />
+        </section>
+        <section>
+          <h3>Última Búsqueda</h3>
+          <ListOfGifs gifs={gifs} />
+        </section>
       </main>
       <footer>This is a footer!</footer>
     </section>
