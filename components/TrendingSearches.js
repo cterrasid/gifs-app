@@ -16,6 +16,7 @@ export default function LazyTrending() {
   const elementRef = useRef();
 
   useEffect(() => {
+    let observer
     const onChange = (entries, observer) => {
       const el = entries[0];
       if (el.isIntersecting) {
@@ -24,13 +25,19 @@ export default function LazyTrending() {
       }
     };
 
-    const observer = new IntersectionObserver(onChange, {
-      rootMargin: "100px"
+    Promise.resolve(
+      typeof IntersectionObserver !== undefined
+        ? IntersectionObserver
+        : import("intersection-observer")
+    ).then(() => {
+      observer = new IntersectionObserver(onChange, {
+        rootMargin: "100px"
+      });
+
+      observer.observe(elementRef.current);
     });
 
-    observer.observe(elementRef.current);
-
-    return () => observer.disconnect();
+    return () => observer && observer.disconnect();
   });
   return (
     <section ref={elementRef}>
