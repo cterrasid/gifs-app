@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import SearcResults from "../searchResults";
+import SearcResults from "../search/[searchResults]";
 
 export default () => {
   const router = useRouter();
