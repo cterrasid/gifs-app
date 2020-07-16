@@ -1,5 +1,5 @@
 import App from "next/app";
-import { GifsContextProvider } from "../context/GifsContext";
+import { GifsContextProvider } from "context/GifsContext";
 
 class MyApp extends App {
   render() {

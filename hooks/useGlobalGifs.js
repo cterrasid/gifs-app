@@ -1,4 +1,4 @@
-import { useGifsContext } from "../context/GifsContext";
+import { useGifsContext } from "context/GifsContext";
 
 export default function useGlobalGifs() {
   const { gifs } = useGifsContext();

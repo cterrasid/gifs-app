@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
-import useGlobalGifs from "../../../hooks/useGlobalGifs";
-import Gif from "../../../components/Gif";
+import useGlobalGifs from "hooks/useGlobalGifs";
+import Gif from "components/Gif";
 
 export default () => {
   const router = useRouter();

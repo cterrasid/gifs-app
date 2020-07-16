@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Router from "next/router";
-import useGifs from "../hooks/useGifs";
-import ListOfGifs from "../components/ListOfGifs";
-import TrendingSearches from "../components/TrendingSearches";
+import useGifs from "hooks/useGifs";
+import ListOfGifs from "components/ListOfGifs";
+import TrendingSearches from "components/TrendingSearches";
 
 export default function Home() {
   const [keyword, setKeyword] = useState("");
