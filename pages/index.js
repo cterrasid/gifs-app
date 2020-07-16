@@ -26,11 +26,11 @@ export default function Home() {
           <button>Buscar</button>
         </form>
         <section>
-          <TrendingSearches />
-        </section>
-        <section>
           <h3>Última Búsqueda</h3>
           <ListOfGifs gifs={gifs} />
+        </section>
+        <section>
+          <TrendingSearches />
         </section>
       </main>
       <footer>This is a footer!</footer>
