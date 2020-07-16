@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import getGifs from "../services/getGifs";
+import getGifsService from "../services/getGifsService";
 import { useGifsContext } from "../context/GifsContext";
 
 export default function useGifs({ keyword }) {
@@ -12,7 +12,7 @@ export default function useGifs({ keyword }) {
       const keywordToUse =
         keyword || localStorage.getItem("lastKeyword") || "random"; // Get the keyword from LS
 
-      getGifs({ keyword: keywordToUse }).then(gifs => {
+      getGifsService({ keyword: keywordToUse }).then(gifs => {
         setGifs(gifs);
         setIsLoading(false);
         localStorage.setItem("lastKeyword", keyword); // Save the keyword on LS
