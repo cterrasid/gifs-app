@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import Category from "./Category";
+import Category from "components/Category";
 
 export default function ListOfCategories({ name, options = [] }) {
   return (
