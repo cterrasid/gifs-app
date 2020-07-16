@@ -6,6 +6,7 @@ const getGifs = async ({ keyword = "" } = {}) => {
   const res = await fetch(url);
   const response = await res.json();
   const { data = [] } = response;
+  
   if (Array.isArray(data)) {
     const gifs = data.map(image => {
       const { id, title, images } = image;
