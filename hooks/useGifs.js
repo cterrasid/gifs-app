@@ -4,20 +4,18 @@ import { useGifsContext } from "../context/GifsContext";
 
 export default function useGifs({ keyword }) {
   const [isLoading, setIsLoading] = useState(false);
-  // const [gifs, setGifs] = useState([]);
   const { gifs, setGifs } = useGifsContext();
 
   useEffect(
     () => {
       setIsLoading(true);
-      // Recupero la keyword del LS
       const keywordToUse =
-        keyword || localStorage.getItem("lastKeyword") || "random";
+        keyword || localStorage.getItem("lastKeyword") || "random"; // Get the keyword from LS
 
       getGifs({ keyword: keywordToUse }).then(gifs => {
         setGifs(gifs);
         setIsLoading(false);
-        localStorage.setItem("lastKeyword", keyword); // Guardar la keyword en el LS
+        localStorage.setItem("lastKeyword", keyword); // Save the keyword on LS
       });
     },
     [keyword, setGifs]
