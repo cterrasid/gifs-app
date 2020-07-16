@@ -1,11 +1,17 @@
+import { Fragment } from "react";
+import Link from "next/link";
+
 export default function Gif({ title, id, url }) {
   return (
-    <a className="gif" href={`#${id}`}>
-      <h4>
-        {title}
-      </h4>
-      <img alt={title} src={url} />
-
+    <Fragment>
+      <Link href="/gif/detail/[id]" as={`/gif/detail/${id}`}>
+        <a className="gif">
+          <h4>
+            {title}
+          </h4>
+          <img loading="lazy" alt={title} src={url} />
+        </a>
+      </Link>
       <style jsx>
         {`
           .gif {
@@ -30,6 +36,6 @@ export default function Gif({ title, id, url }) {
           }
         `}
       </style>
-    </a>
-  )
+    </Fragment>
+  );
 }
