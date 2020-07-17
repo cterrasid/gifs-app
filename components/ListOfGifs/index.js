@@ -6,8 +6,8 @@ export default function ListOfGifs({ gifs }) {
     <Fragment>
       <ul className="listOfGifs">
         {gifs.map(({ id, title, url }) =>
-          <li className="listOfGifs-item">
-            <Gif id={id} key={id} title={title} url={url} />
+          <li className="listOfGifs-item" key={id}>
+            <Gif id={id} title={title} url={url} />
           </li>
         )}
       </ul>

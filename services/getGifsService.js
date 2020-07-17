@@ -16,9 +16,10 @@ const fromApiResponseToGifs = apiResponse => {
 };
 
 export default async function getGifsService(
-  { limit = 25, keyword = "" } = {}
+  { limit = 25, keyword = "", page = 0 } = {}
 ) {
-  const url = `${API_URL}/gifs/search?api_key=${API_KEY}&q=${keyword}&limit=${limit}&offset=0&rating=g&lang=en`;
+  const url = `${API_URL}/gifs/search?api_key=${API_KEY}&q=${keyword}&limit=${limit}&offset=${page *
+    limit}&rating=g&lang=en`;
   const res = await fetch(url);
   const response = await res.json().then(fromApiResponseToGifs);
 
