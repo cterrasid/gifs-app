@@ -4,35 +4,43 @@ import Link from "next/link";
 export default function Gif({ title, id, url }) {
   return (
     <Fragment>
-      <Link href="/gif/detail/[id]" as={`/gif/detail/${id}`}>
-        <a className="gif">
-          <h4>
-            {title}
-          </h4>
-          <img loading="lazy" alt={title} src={url} />
-        </a>
-      </Link>
+      <section className="gif">
+        <Link href="/gif/detail/[id]" as={`/gif/detail/${id}`}>
+          <a className="gif-link">
+            <h4>
+              {title}
+            </h4>
+            <img loading="lazy" alt={title} src={url} />
+          </a>
+        </Link>
+      </section>
       <style jsx>
         {`
           .gif {
-            border: 1px solid black;
-            border-radius: 6px;
-            text-align: center;
-            text-decoration: none;
-            color: black;
-            display: flex;
-            flex-direction: column;
-            margin: 16px;
-            padding: 32px;
-            width: 30%;
+            margin-bottom: .5em;
           }
 
           .gif h4 {
+            background: rgba(0, 0, 0, .3);
+            bottom: 0;
+            font-size: 12px;
+            color: #fff;
             margin: 0;
+            position: absolute;
           }
 
           .gif img {
+            width: 100%;
             object-fit: contain;
+            vertical-align: top;
+          }
+
+          .gif-link {
+            color: #000;
+            display: block;
+            text-decoration: none;
+            position: relative;
+            width: 100%;
           }
         `}
       </style>
