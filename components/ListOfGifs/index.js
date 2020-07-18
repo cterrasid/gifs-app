@@ -13,22 +13,18 @@ export default function ListOfGifs({ gifs }) {
       </ul>
       <style jsx>
         {`
-          :root {
-            --results-columns: 2;
-          }
-
           .listOfGifs {
-            column-count: var(--results-columns);
-            column-gap: .5em;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-rows: masonry;
+            grid-gap: 16px;
+            align-items: center;
             min-height: 100vh;
             margin: 0 auto;
             padding: 0;
           }
 
           .listOfGifs-item {
-            -webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
-            page-break-inside: avoid; /* Firefox */
-            break-inside: avoid; /* IE 10+ */
             background-color: #eee;
             display: inline-block;
             width: 100%;
