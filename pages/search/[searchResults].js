@@ -14,9 +14,9 @@ export default function SearcResults({ keyword }) {
 
   const debounceHandleNextPage = useCallback(
     debounce(() => {
-      setPage(prevPage => prevPage + 1), 100;
+      setPage(prevPage => prevPage + 1), 200;
     }),
-    []
+    [setPage]
   );
 
   useEffect(
