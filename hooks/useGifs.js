@@ -4,7 +4,7 @@ import { useGifsContext } from "context/GifsContext";
 
 const INITIAL_PAGE = 0;
 
-export default function useGifs({ keyword }) {
+export default function useGifs({ keyword } = {keyword: null}) {
   const [isLoading, setIsLoading] = useState(false);
   const [isLoadingNextPage, setIsLoadingNextPage] = useState(false);
   const [page, setPage] = useState(INITIAL_PAGE);
@@ -12,7 +12,7 @@ export default function useGifs({ keyword }) {
 
   const { gifs, setGifs } = useGifsContext();
   const componentDidMountRef = useRef(false);
-
+console.log(keyword);
   useEffect(
     () => {
       setIsLoading(true);

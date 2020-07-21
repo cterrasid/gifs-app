@@ -1,7 +1,7 @@
-import { Fragment } from "react";
+import { Fragment, memo } from "react";
 import Link from "next/link";
 
-export default function Gif({ title, id, url }) {
+function Gif({ title, id, url }) {
   return (
     <Fragment>
       <section className="gif">
@@ -47,3 +47,7 @@ export default function Gif({ title, id, url }) {
     </Fragment>
   );
 }
+
+export default memo(Gif, (prevProps, nextProps) => {
+  return prevProps.id === nextProps.id;
+});
